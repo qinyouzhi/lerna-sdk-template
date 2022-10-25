@@ -1,0 +1,94 @@
+{
+  "name": "lerna-sdk-template",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "packages/**/src/**/*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "commit": "git add . && commit",
+    "dev": "lerna run dev --parallel",
+    "lib": "lerna run lib --parallel",
+    "lint": "lerna run lint --parallel",
+    "lint-fix": "lerna run lint-fix --parallel",
+    "release": "yarn run lib && lerna publish from-package",
+    "bootstrap": "lerna bootstrap",
+    "clean": "lerna run clean --parallel",
+    "plop": "plop --plopfile ./plop/index.js"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "@commitlint/prompt-cli": "^17.0.3",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@trivago/prettier-plugin-sort-imports": "^3.3.1",
+    "@types/jest": "^27.5.1",
+    "@types/node": "^16.11.36",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "@vitejs/plugin-legacy": "^2.0.0",
+    "@vitejs/plugin-react": "^2.0.0",
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-import-resolver-alias": "1.1.2",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "3.4.1",
+    "eslint-plugin-react": "^7.30.0",
+    "husky": "^8.0.1",
+    "lerna": "^5.5.0",
+    "lint-staged": "^13.0.3",
+    "mockjs": "^1.1.0",
+    "plop": "^3.1.1",
+    "prettier": "^2.6.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "rimraf": "^3.0.2",
+    "rollup-plugin-visualizer": "^5.7.1",
+    "shelljs": "^0.8.5",
+    "standard-version": "^9.5.0",
+    "ttypescript": "^1.5.13",
+    "typescript": "^4.7.2",
+    "typescript-transform-paths": "^3.3.1",
+    "vite": "^3.0.4",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-mock": "^2.9.6",
+    "web-vitals": "^2.1.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://jihulab.com/elihr/elifront/open/lerna-avocado-sdk.git"
+  }
+}

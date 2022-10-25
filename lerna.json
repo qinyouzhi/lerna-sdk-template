@@ -1,0 +1,32 @@
+{
+  "useNx": false,
+  "useWorkspaces": true,
+  "npmClient": "yarn",
+  "packages": [
+    "packages/*"
+  ],
+  "command": {
+    "version": {
+      "exact": true,
+      "conventionalCommits": true
+    },
+    "publish": {
+      "npmClient": "npm",
+      "allowBranch": [
+        "main",
+        "master",
+        "beta/*",
+        "feature/*"
+      ],
+      "ignoreChanges": [
+        "ignored-file",
+        "*.md"
+      ],
+      "conventionalCommits": true,
+      "createRelease": "gitlab",
+      "message": "chore(release): publish %s [skip ci]",
+      "registry": "https://registry.npmjs.org/"
+    }
+  },
+  "version": "independent"
+}

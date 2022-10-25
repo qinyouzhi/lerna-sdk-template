@@ -1,0 +1,11 @@
+export interface Config {
+  server_url?: string;
+  authorization: string;
+}
+
+export const avocado{{ properCase noPrefixName }} = {
+  init: (config: Config) => {
+    console.log(config);
+    window['Avocado{{ properCase noPrefixName }}Config'] = { ...config };
+  },
+};

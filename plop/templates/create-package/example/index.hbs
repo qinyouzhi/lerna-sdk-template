@@ -1,0 +1,49 @@
+import { Suspense, useEffect } from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Loading, ThemeProvider } from 'fbm-ui';
+import { {{ upperCaseName }}_BASE_URL, {{ upperCaseName }}_AUTHORIZATION } from '../../config';
+import { avocado{{ properCase noPrefixName }} } from '../../packages/{{ name }}/src';
+import routers from './routers';
+
+const App: React.FC = () => {
+  useEffect(() => {
+    avocado{{ properCase noPrefixName }}.init({
+      server_url: {{ upperCaseName }}_BASE_URL,
+      authorization: {{ upperCaseName }}_AUTHORIZATION,
+    });
+  }, []);
+
+  return (
+    <ThemeProvider>
+      <div>
+        <Router basename="/">
+          <Routes>
+            {routers.map((item: any, index: number) => {
+              return (
+                <Route
+                  key={index}
+                  path={item.path}
+                  element={
+                    <Suspense
+                      fallback={
+                        <div>
+                          <Loading size={40} />
+                        </div>
+                      }
+                    >
+                      <item.element />
+                    </Suspense>
+                  }
+                />
+              );
+            })}
+          </Routes>
+        </Router>
+      </div>
+    </ThemeProvider>
+  );
+};
+
+const container = document.getElementById('app');
+ReactDOM.render(<App />, container);

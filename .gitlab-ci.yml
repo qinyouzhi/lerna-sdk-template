@@ -1,0 +1,44 @@
+# image: node:16.15.0 # 指定node镜像版本
+
+# stages:
+#   - install
+#   - publish
+
+# ### 配置缓存
+# cache:
+#   key:
+#     files:
+#       - package.json
+#   paths:
+#     - node_modules/
+#     - lib/
+#     - esm/
+
+# # 安装依赖
+# job_install:
+#   only:
+#     - main
+#   stage: install
+#   before_script:
+#     - echo '开始安装依赖'
+#   script:
+#     - yarn config set registry https://registry.npm.taobao.org/
+#     - yarn install
+#     - ls -a
+#     - echo '依赖安装完成'
+#   retry: 0
+
+# # 发布
+# job_publish:
+#   only:
+#     - main
+#   stage: publish
+#   before_script:
+#     - echo '更新补丁版本，准备发布'
+#   script:
+#     - git config --global user.email "qinyoubing@elihr.cn"
+#     - git config --global user.name "qinyoubing"
+#     - node ./scripts/publish.js ${NPM_TOKEN}
+#     - echo '发布成功'
+#   when: 'on_success'
+#   retry: 0

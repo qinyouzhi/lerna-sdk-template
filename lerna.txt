@@ -1,0 +1,19 @@
+lerna的一些常用命令
+
+1、lerna bootstrap
+初始化项目依赖以及建立link关系以及预发布处理
+
+2、lerna publish
+lerna publish做了一套npm标准的发布流程管理
+
+3、lerna changed
+用来查看发生改变的package，即预发布的包
+
+4、lerna clean
+用来清空所有package的node_moudles依赖
+
+5、lerna run
+用来执行每个package下的scripts命令
+
+6、lerna add
+用来给package添加依赖，可以全部添加，也可以指定添加

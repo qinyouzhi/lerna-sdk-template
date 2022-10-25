@@ -1,0 +1,26 @@
+import { HoxRoot } from 'hox';
+import { ThemeProvider } from 'fbm-ui';
+import { StyledEngineProvider } from 'fbm-ui/lib/mui';
+import { StylesProvider, createGenerateClassName } from '@mui/styles';
+
+const AnyStylesProvider: any = StylesProvider;
+
+const generateClassName = createGenerateClassName({
+  seed: {{ name }},
+  productionPrefix: {{ name }},
+  disableGlobal: true,
+});
+
+const RootProvider: React.FC = ({ children }) => {
+  return (
+    <AnyStylesProvider generateClassName={generateClassName}>
+      <ThemeProvider>
+        <StyledEngineProvider>
+          <HoxRoot>{children}</HoxRoot>
+        </StyledEngineProvider>
+      </ThemeProvider>
+    </AnyStylesProvider>
+  );
+};
+
+export default RootProvider;

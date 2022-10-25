@@ -1,0 +1,45 @@
+{
+	"name": "{{ name }}",
+	"version": "1.0.0",
+	"description": "{{ description }}",
+	"author": "Avocado",
+	"license": "MIT",
+	"main": "lib/index.js",
+	"module": "esm/index.js",
+	"types": "lib/index.d.ts",
+	"sideEffects": false,
+	"files": [
+		"lib",
+		"esm"
+	],
+	"dependencies": {
+		"axios": "^0.27.2",
+		"fbm-ui": "^^1.4.116"
+	},
+	"scripts": {
+		"clean": "rimraf lib esm build",
+		"serve": "npm run dev",
+		"dev": "vite",
+		"build": "vite build",
+		"lib": "npm run lib:cjs && npm run lib:esm",
+		"lib:cjs": "node ../../scripts/lib-cjs.js",
+		"lib:esm": "node ../../scripts/lib-esm.js",
+		"release": "np --no-yarn --no-tests --no-cleanup",
+		"pub": "npm run lib && npm publish",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "eslint --ext .js,.ts,.tsx src/",
+		"lint-fix": "eslint --fix --ext .js,.ts,.tsx src/"
+	},
+	"resolutions": {
+		"react": "17.0.2",
+		"react-dom": "17.0.2"
+	},
+	"peerDependencies": {
+		"react": ">=17.0.0",
+		"react-dom": ">=17.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://jihulab.com/elihr/elifront/open/lerna-avocado-sdk.git"
+	}
+}

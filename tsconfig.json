@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "sourceMap": false, // 是否生成sourceMap（用于浏览器调试）
+    "declaration": true, // 是否生成声明文件
+    "declarationMap": false, // 是否生成声明文件map文件（便于调试）
+    "target": "es2020",
+    "experimentalDecorators": true,
+    "plugins": [
+      { "transform": "typescript-transform-paths" },
+    ],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "examples/**/*",
+  ],
+  "exclude": [
+    "node_modules",
+    "**/node_modules",
+    "build",
+    "**/build",
+    "scripts",
+  ]
+}

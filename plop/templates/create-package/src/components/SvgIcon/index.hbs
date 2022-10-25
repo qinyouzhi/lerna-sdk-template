@@ -1,0 +1,12 @@
+import { useState } from 'react';
+import { ReactSVG } from 'react-svg';
+import { IconProps } from './interface';
+
+const Icon: React.FC<IconProps> = ({ name, ...props }) => {
+  const [src, setSrc] = useState<string>('');
+  import(`../../assets/icons/${name}.svg`).then(v => setSrc(v.default));
+
+  return <ReactSVG src={src} {...props} />;
+};
+
+export default Icon;

@@ -1,0 +1,11 @@
+import { lazy } from 'react';
+import { RouteProps } from 'react-router-dom';
+
+const routers: RouteProps[] = [
+  {
+    path: '/example',
+    element: lazy(() => import('../views/Example')),
+  },
+];
+
+export default routers;
